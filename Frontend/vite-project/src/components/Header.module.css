@@ -1,0 +1,53 @@
+.header {
+    position:relative;
+  height: 40px; /* Adjust as needed */
+  margin-top: 16px; /* Adjust as needed */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12-column grid layout */
+  align-items: center; /* Center items vertically */
+  gap: 9px;
+
+
+}
+
+.leftSection {
+  grid-column: span 10; /* Span 8 columns */
+}
+
+.topic{
+    margin-left: 2rem;
+}
+
+@media (min-width: 768px) {
+  .rightSection {
+    margin-left: 8rem; /* Increase margin-left for larger screens */
+  }
+}
+
+.rightSection {
+  grid-column: span 2; /* Span 4 columns */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Divide into 2 equal parts */
+  justify-content: end; /* Align items to the right */
+}
+
+.navList{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap:10px;
+}
+
+.link, .logout {
+  color: #0000EE; /* Default link color */
+  text-decoration: none;
+  text-align: center; /* Center text */
+  padding-left: 0; /* Remove padding */
+}
+
+.link:hover, .logout:hover {
+  color: #1E90FF; /* Tailwind's 'blue-500' color */
+}
+
+.logout {
+  cursor: pointer;
+}

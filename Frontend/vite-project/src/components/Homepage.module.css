@@ -1,0 +1,93 @@
+/* Container for centering content using grid */
+.container {
+  display: grid;
+  place-items: center; /* Center content both horizontally and vertically */
+  min-height: 100vh;
+  padding: 16px;
+  background-color: #f0f0f0; /* Adjust color as needed */
+}
+
+/* Card styles */
+.card {
+  width: 100%;
+  max-width: 800px; /* Adjust max width as needed */
+  background-color: #fff; /* Adjust color as needed */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adjust shadow as needed */
+  padding: 16px; /* Add padding for content */
+  box-sizing: border-box;
+  height:37rem;
+  margin-top:-45px/* Include padding in width/height calculation */
+}
+
+/* Table container */
+.tableContainer {
+  display: grid;
+  grid-template-rows: auto 1fr; /* Header and body rows */
+  gap: 1rem; /* Space between header and body */
+}
+
+/* Table head styles */
+.tableHead {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12 columns */
+  gap: 1rem; /* Space between columns */
+  font-weight: bold;
+  background-color: #f8f9fa; /* Adjust color as needed */
+  padding: 1rem;
+}
+
+/* Table head cell styles */
+.tableHeadCell {
+  grid-column: span 1; /* Each header cell spans 1 column */
+  padding: 0.5rem;
+  text-align: left;
+  color: #495057; /* Adjust text color as needed */
+}
+
+/* Table body styles */
+.tableBody {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12 columns */
+  gap: 1rem; /* Space between columns */
+}
+
+/* Table row styles */
+.tableRow {
+  display: contents; /* Allows rows to align properly with grid columns */
+}
+
+/* Table cell styles */
+.tableCell {
+  padding: 0.5rem; /* Adjust border color as needed */
+  text-align: left;
+  color: #495057; /* Adjust text color as needed */
+}
+
+/* Specific column spans for table cells */
+.tableCellName {
+  grid-column: span 2; /* Spans 2 columns */
+}
+
+.tableCellEmail {
+  grid-column: span 5; /* Spans 5 columns */
+}
+
+.tableCellMobile {
+  grid-column: span 3; /* Spans 3 columns */
+}
+
+.tableCellAction {
+  grid-column: span 2; /* Spans 2 columns */
+}
+
+/* Menu button styles */
+.menuButton {
+  background-color: #007bff; /* Adjust color as needed */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
