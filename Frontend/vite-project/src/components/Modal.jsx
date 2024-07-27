@@ -6,10 +6,6 @@ import { useEffect } from "react";
 const Modal = ({ isOpen, onClose, onSave, currentItem }) => {
   if (!isOpen) return null;
 
-
-
-
-
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>

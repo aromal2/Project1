@@ -5,10 +5,11 @@ const BASEurl = axios.create({
   baseURL: "http://localhost:5000/api", // Adjust the base URL as needed
 });
 
+const getToken = () => localStorage.getItem("token");
+
 
 export const signup = async (values) => {
   try {
-    console.log(values,"000000000000000");
     const response = await BASEurl.post("/", values);
     console.log(response);
 return response;
@@ -21,9 +22,7 @@ return response;
 // Define the login function
 export const login = async (values) => {
   try {
-    console.log(values,"8888888888888");
     const response = await BASEurl.post("/loginform", values);
-    console.log(response);
 return response.data
     // return response.data; // Handle the response data as needed
   } catch (error) {
@@ -47,7 +46,11 @@ export const addstudent = async (values) => {
 export const viewProfile = async () => {
   try {
     
-    const response = await BASEurl.get("/viewprofile");
+    const response = await BASEurl.get("/viewprofile", {
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+    });
     console.log(typeof response.data);
     return response.data; // Handle the response data as needed
   } catch (error) {
@@ -69,11 +72,15 @@ export const deletestudent = async (studentId) => {
   }
 };
 
-export const editstudent = async (updated) => {
+export const editProfile = async (updated) => {
   try {
     
   console.log(updated,"97777777777777777");
-    const response = await BASEurl.put(`/updateprofile`,updated);
+    const response = await BASEurl.put(`/updateprofile`, updated, {
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+    });
     console.log(response,'888888');
     return response; // Handle the response data as needed
   } catch (error) {

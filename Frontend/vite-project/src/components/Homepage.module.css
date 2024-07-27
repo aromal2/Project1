@@ -15,9 +15,9 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adjust shadow as needed */
   padding: 16px; /* Add padding for content */
-  box-sizing: border-box;
-  height:37rem;
-  margin-top:-45px/* Include padding in width/height calculation */
+  box-sizing: border-box; /* Include padding in width/height calculation */
+  height: 37rem;
+  margin-top: -45px;
 }
 
 /* Table container */
@@ -59,9 +59,12 @@
 
 /* Table cell styles */
 .tableCell {
-  padding: 0.5rem; /* Adjust border color as needed */
+  padding: 0.5rem; /* Adjust padding as needed */
   text-align: left;
   color: #495057; /* Adjust text color as needed */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 /* Specific column spans for table cells */
@@ -90,4 +93,9 @@
   cursor: pointer;
   border-radius: 4px;
   font-size: 0.875rem;
+}
+
+/* Ensure the card is scrollable if content overflows */
+.card {
+  overflow: auto;
 }

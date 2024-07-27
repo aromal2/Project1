@@ -35,7 +35,6 @@ const getUserByEmail = (email) => {
         console.error("Error fetching user by email:", err.stack);
         reject(err); // Reject the promise with the error
       } else {
-      console.log(results,"oooooooooooooo");
         resolve(results); // Resolve the promise with the results
       }
     });
@@ -98,18 +97,14 @@ const viewProfile = () => {
         console.error("Error fetching students:", err.stack);
         reject(err);
       } else {
-        console.log(results, "4444444444");
+        console.log(results, "4444444444")
         resolve(results);
       }
     });
   });
 };
 
-
-// Delete Student
-
-const editStudent = (id, fullname, email, mobileno) => {
-  console.log("Input parameters:", { id, fullname, email, mobileno });
+const editProfiles = (id, fullname, email, mobileno) => {
 
   return new Promise((resolve, reject) => {
     const query =
@@ -138,5 +133,5 @@ module.exports = {
   generateToken1,
   comparePassword,
   viewProfile,
-  editStudent,
+  editProfiles,
 };

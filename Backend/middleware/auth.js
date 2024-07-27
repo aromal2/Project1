@@ -3,7 +3,6 @@ const { verifyToken } = require("../helpers/helper");
 const Middleware = (req, res, next) => {
   // Extract token from Authorization header
   const authHeader = req.headers.authorization;
-  console.log(authHeader);
   const token =
     authHeader && authHeader.startsWith("Bearer ")
       ? authHeader.split(" ")[1]
@@ -16,7 +15,7 @@ const Middleware = (req, res, next) => {
   try {
     const payload = verifyToken(token);
     if (payload) {
-      req.user = payload; // Optionally attach payload to request
+      req.user = payload; 
       next();
     } else {
       res.status(401).json({ message: "Unauthorized" });

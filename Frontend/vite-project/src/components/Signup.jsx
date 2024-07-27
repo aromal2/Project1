@@ -31,7 +31,6 @@ export function Signup() {
     }),
     onSubmit: async (values) => {
       try {
-        console.log(values, "99999999999");
         const response = await signup(values);
         if (response.data) {
           navigate("/login");

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Homepage.module.css";
 import Modal from "../components/Modal";
-import { editstudent, viewProfile } from "../api/apiconnection";
+import { editProfile, viewProfile } from "../api/apiconnection";
 
 const TABLE_HEAD = ["Name", "Email", "Mobile No", "Action"];
 
@@ -9,7 +9,7 @@ export function Homepage() {
   const [openMenuId, setOpenMenuId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentItem, setCurrentItem] = useState(null);
-  const [students, setStudents] = useState([]);
+  const [profile, setProfile] = useState([]);
 
   const handleMenuClick = (id) => {
     setOpenMenuId(openMenuId === id ? null : id);
@@ -22,11 +22,10 @@ export function Homepage() {
 
   const handleSave = async (updatedItem) => {
     try {
-      console.log(updatedItem);
-      const response = await editstudent(updatedItem); // Await the editStudent call
+      const response = await editProfile(updatedItem); // Await the editStudent call
 
-      // Update the students state
-      setStudents((prevStudents) =>
+      // Update the Profile state
+      setProfile((prevStudents) =>
         prevStudents.map((student) =>
           student.id === updatedItem.id
             ? { ...student, ...updatedItem }
@@ -42,8 +41,7 @@ export function Homepage() {
     const fetchStudents = async () => {
       try {
         const response = await viewProfile();
-        console.log(response, "4444444444");
-        setStudents(response);
+        setProfile(response);
       } catch (error) {
         console.error("Error fetching student profiles:", error.message);
       }
@@ -72,8 +70,8 @@ export function Homepage() {
             ))}
           </div>
           <div className={styles.tableBody}>
-            {students.map((student) => {
-              const { id, fullname, email, mobileno } = student;
+            {profile.map((profiles) => {
+              const { id, fullname, email, mobileno } = profiles;
               return (
                 <div key={id} className={styles.tableRow}>
                   <div

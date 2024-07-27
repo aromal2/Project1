@@ -16,7 +16,7 @@ export function Header() {
   return (
     <div className={styles.header}>
       <div className={styles.leftSection}>
-        <p className={styles.topic}>ertyu</p>
+        <p className={styles.topic}>Profiler</p>
       </div>
       <div className={styles.rightSection}>
         <ul className={styles.navList}>

@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import * as Yup from "yup";
 import styles from "./Loginform.module.css"; // Import the CSS module
 import { login } from "../api/apiconnection";
@@ -75,7 +75,9 @@ export function Loginform() {
             </button>
           </div>
           <div className={styles.create}>
+            <Link to="/" >
             <p>Create an Account</p>
+            </Link>
           </div>
         </div>
       </div>

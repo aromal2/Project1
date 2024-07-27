@@ -6,14 +6,13 @@ const {
   generateToken,
   generateToken1,
   viewProfile,
-  editStudent,
+  editProfiles,
   insertUser
 } = require("../helpers/helper");
 
 
 exports.insertUsercontroller = async(req,res)=>{
 try{
-  console.log(req.body,"88888888888533333333333");
   const {fullname,email,mobileno,password}=req.body
    const response = await insertUser(fullname,email,mobileno,password);
    
@@ -28,12 +27,10 @@ try{
 exports.loginController = async (req, res) => {
   try {
 
-    console.log(req.body,"55555555");
     const { email, password } = req.body;
 
     const user = await getUserByEmail(email,password);
 
-    console.log(user[0],"9888888888888888867");
     if (!user[0]) {
       return res.status(404).json({
         status: "failed",
@@ -44,7 +41,6 @@ exports.loginController = async (req, res) => {
     }
 
     const isPasswordValid = await comparePassword(password, user[0].password);
-    console.log(isPasswordValid,"99999999");
     if (!isPasswordValid) {
       return res.status(401).json({
         status: "failed",
@@ -55,19 +51,19 @@ exports.loginController = async (req, res) => {
     }
 
     const token = generateToken(user[0]);
-
-
-    const refreshtoken = generateToken1(user[0]);
     user.password = "";
-    console.log(token,"6666644444444");
+  
+
+
     res.setHeader("Authorization", `Bearer ${token}`);
+   
+
     
     res.json({
       status: "success",
       message: "Sign in Success",
       user,
       token,
-      refreshtoken
     });
   } catch (error) {
     console.error("Error during login:", error.message);
@@ -106,11 +102,10 @@ exports.editController = async (req, res) => {
   try {
     // Assuming studentId is passed in req.params.data
 let {id,fullname,email,mobileno}=req.body
-    console.log(req.body, "3333333");
+    
 
-     const editStudents = await editStudent(id,fullname, email,mobileno);
- console.log(editStudents,"diteeeeeeeeeeeeeeee");
-     res.json(editStudents);
+     const editProfile = await editProfiles(id,fullname, email,mobileno);
+     res.json(editProfile);
   } catch (error) {
     console.error("Error editing student:", error.message);
     res.status(500).json({
